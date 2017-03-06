@@ -1,11 +1,9 @@
-console.log ("debugging1");
 import React, { Component } from 'react';
-console.log ("debugging2");
+import Map from './Map.jsx';
 export default class App extends Component {
   render() {
     return (
-     <div style={{textAlign: 'center'}}>
-        <h1>Hello World</h1>
-      </div>);
+     <Map/>
+    );
   }
 }
