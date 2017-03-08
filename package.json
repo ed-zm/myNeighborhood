@@ -21,9 +21,11 @@
   "author": "Eduardo Zárraga",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "express": "^4.14.1",
     "google-maps": "^3.2.1",
     "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-google-maps": "^4.11.0"
   },
