@@ -24,28 +24,36 @@ export default class Map extends Component {
                 }
             });
             var currentInfoWindow = false;
+            var currentInfoWindowSP = false;
             map.addListener('click', data => {
                 if (data.placeId){
                     var placeId = {placeId: data.placeId};
+                    var compare = false;
                     var placeService = new google.maps.places.PlacesService(map);
-                    placeService.getDetails(placeId, (place, status) => {
-                        if (status == google.maps.places.PlacesServiceStatus.OK){
-                            var marker = new google.maps.Marker({
-                                position: data.latLng,
-                                map: map
+                    this.state.locations.map(c => {
+                        if (c.place_id === placeId.placeId){
+                            compare = true;
+                            alert("You have clicked this place before");
+                        }
+                    });
+                        if(!compare){
+                            placeService.getDetails(placeId, (place, status) => {
+                                if (status == google.maps.places.PlacesServiceStatus.OK){
+                                    var marker = new google.maps.Marker({
+                                        position: data.latLng,
+                                        map: map
+                                    });
+                                }
+                            });
+                            var placeSearch = new google.maps.places.PlacesService(map);
+                            placeSearch.getDetails(placeId, (place, status) => {
+                                if (status == google.maps.places.PlacesServiceStatus.OK){
+                                    this.state.locations.push(place);
+                                    this.setState({locations: this.state.locations});
+                                }
                             });
                         }
-                    });
-                    var placeSearch = new google.maps.places.PlacesService(map);
-                    placeSearch.getDetails(placeId, (place, status) => {
-                        if (status == google.maps.places.PlacesServiceStatus.OK){
-                            console.log(place);
-                            this.state.locations.push(place);
-                            this.setState({locations: this.state.locations});
-                            console.log(this.state.locations);
-                        }
-                    });
-
+                    //});
                 }
                 else{
                     if (currentInfoWindow){
