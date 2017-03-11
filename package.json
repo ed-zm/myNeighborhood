@@ -21,9 +21,13 @@
   "author": "Eduardo Zárraga",
   "license": "MIT",
   "dependencies": {
+    "async": "^2.1.5",
     "bootstrap": "^3.3.7",
+    "events": "^1.1.1",
     "express": "^4.14.1",
+    "flux": "^3.1.2",
     "google-maps": "^3.2.1",
+    "keymirror": "^0.1.1",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",

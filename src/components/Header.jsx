@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup,FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup,FormControl, Glyphicon, Button } from 'react-bootstrap';
 
 export default class Header extends Component {
     render() {
@@ -14,6 +14,7 @@ export default class Header extends Component {
                     <FormGroup>
                         <FormControl type = "text" placeholder = "search" />
                     </FormGroup>
+                    <Button type = "submit"><Glyphicon glyph = "search"/></Button>
                 </Navbar.Form>
             </Navbar>
         );
