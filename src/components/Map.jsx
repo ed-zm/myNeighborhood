@@ -2,14 +2,12 @@ import React, {Component} from 'react';
 import MapActions from '../actions/MapActions.jsx';
 import MapStore from '../stores/MapStore.jsx';
 
-import ListView from './ListView.jsx';
-import { Col } from 'react-bootstrap';
-
 export default class Map extends Component {
     constructor(){
         super();
         this.state = {locations: [],
-            mapp: null
+            mapp: null,
+            data: null
         }
         this.setMap = this.setMap.bind(this);
         this.setLocations = this.setLocations.bind(this);
@@ -20,7 +18,6 @@ export default class Map extends Component {
     }
     componentDidMount(){
         MapActions.loadMap();
-        this
     }
     componentWillUnmount(){
         MapStore.removeChangeListener(this.setLocations);
@@ -29,21 +26,16 @@ export default class Map extends Component {
         this.setState({mapp: MapStore.getMap()})
     }
     setLocations(){
-        let locations = this.state.locations.slice();
+        let locations = this.props.locations.slice();
         locations.push(MapStore.getLocation());
-        this.state.locations.push(MapStore.getLocation());
-        this.setState({locations: locations},() => console.log(this.state.locations));
+        this.props.setLocations(locations);
     }
+
     render(){
         return(
             <div>
-                <Col md = {6}>
-                    <div id = "map" style = {{ width: "100%", height: 600}}>
+                    <div id = "map" style = {{ width: "100%", height: 400}}>
                     </div>
-                </Col>
-                <Col md = {6}>
-                    <ListView locations = {this.state.locations}/>
-                </Col>
             </div>
         );
     }

@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem, FormGroup,FormControl, Gly
 export default class Header extends Component {
     render() {
         return (
-            <Navbar>
+            <Navbar staticTop = {true}>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href = "#">My Neighborhood</a>
