@@ -23,7 +23,7 @@ export default class Map extends Component {
         this
     }
     componentWillUnmount(){
-        MapStore.removeChangeListener(this.onChange);
+        MapStore.removeChangeListener(this.setLocations);
     }
     setMap(){
         this.setState({mapp: MapStore.getMap()})

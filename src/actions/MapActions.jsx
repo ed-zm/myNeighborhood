@@ -27,7 +27,7 @@ export default {
                                 position: data.latLng,
                                 map: mapp
                             });
-                            var placeSearch = new google.maps.places.PlacesService(map);
+                            var placeSearch = new google.maps.places.PlacesService(mapp);
                             placeSearch.getDetails(placeId, (place, status) => {
                                 if (status == google.maps.places.PlacesServiceStatus.OK){
                                     AppDispatcher.dispatch({
