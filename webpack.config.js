@@ -26,7 +26,10 @@ module.exports = {
             //color: true,
             historyApiFallback: true,
             inline: true,
-            hot: true
+            hot: true,
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
     },
     module: {
         loaders: [{

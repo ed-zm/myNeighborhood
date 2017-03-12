@@ -10,12 +10,6 @@ export default class Header extends Component {
                         <a href = "#">My Neighborhood</a>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Navbar.Form pullRight>
-                    <FormGroup>
-                        <FormControl type = "text" placeholder = "search" />
-                    </FormGroup>
-                    <Button type = "submit"><Glyphicon glyph = "search"/></Button>
-                </Navbar.Form>
             </Navbar>
         );
     }
